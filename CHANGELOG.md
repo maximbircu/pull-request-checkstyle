@@ -1,6 +1,9 @@
 ## Version 1.0.0 *(In development)*
 
-Issue: [#2](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
+Issue: [#5](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
+- Remove `.md` extension from the LICENSE file 
+
+Issue: [#3](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
 - Implement a new PR Branch Name checkstyle component
 - Fix JS docs for the previous components
 
