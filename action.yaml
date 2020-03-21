@@ -4,11 +4,19 @@ description: 'Github action to enforce conventions for PR branch name and commit
 inputs:
   # Commit style config inputs
   commit-message-regex:
-    default: "."
-  commit-message-max-length:
-    default: 50
+    default: ".*"
   commit-message-min-length:
     default: 20
+  commit-message-max-length:
+    default: 72
+
+  # Branch style config inputs
+  branch-name-regex:
+    default: ".*"
+  branch-name-min-length:
+    default: 20
+  branch-name-max-length:
+    default: 72
 
 runs:
   using: 'node12'

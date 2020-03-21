@@ -26,9 +26,9 @@ test('returns proper error message if commit checks failed', () => {
       '\nCommit style violations found!\n\n' +
     '"initial commit":\n' +
     ' - Commit message doesn\'t match the regex - /^[A-Z].*/\n' +
-    ' - Commit message is shorter then 20\n\n' +
+    ' - Commit message is shorter than 20\n\n' +
     '"another wrong commit which is too long to pass the style check":\n' +
     ' - Commit message doesn\'t match the regex - /^[A-Z].*/\n' +
-    ' - Commit message is longer then 50\n',
+    ' - Commit message is longer than 50\n',
   )
 })

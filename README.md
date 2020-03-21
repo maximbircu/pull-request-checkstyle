@@ -6,6 +6,20 @@
 Pull Request Checkstyle is a simple Github action which helps to set up some styling rules for pull requests `commit message` and `branch name`
 and identify their violation during CI runtime.
 
+# Usage
+```yaml
+- name: "Check branch name and commit messages style"
+  uses: maximbircu/github-action-pull-request-checkstyle@v1.0.0
+  with:
+    commit-message-regex: ".*"     # Commit message regex
+    commit-message-min-length: 20  # Commit message min length
+    commit-message-max-length: 72  # Commit message max length
+    
+    branch-name-regex: ".*"        # Branch name regex
+    branch-name-min-length: 20     # Branch name min length
+    branch-name-max-length: 72     # Branch name max length
+```
+
 # Contribution rules:
 1. Make sure there is a GitHub issue describing the changes you want to contribute with. (Add one if needed)
 2. Submit a PR just in case you:

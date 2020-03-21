@@ -25,8 +25,11 @@ function main() {
         config: results[2],
       }
       const errors = new StyleChecker(checkStyleData).check()
-      colors.enable()
-      core.setFailed(colors.red(errors.join('\n')));
+      const errorMessage = errors.join('\n')
+      if (errorMessage.length !== 0) {
+        colors.enable()
+        core.setFailed(colors.red(errorMessage));
+      }
     })
   } catch (error) {
     core.setFailed(`${error.message}\n${error.stack}`)

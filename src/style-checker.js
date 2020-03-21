@@ -1,4 +1,5 @@
 const CommitStyleChecker = require('./commit/commit-style-checker.js')
+const BranchStyleChecker = require('./branch/branch-style-checker.js')
 
 module.exports = function(data) {
   /**
@@ -8,7 +9,8 @@ module.exports = function(data) {
    * @return {*} the collection of error messages which is empty in case the validation passed
    */
   this.check = () => {
-    const commitChecker = new CommitStyleChecker(data.commits, data.config.commit)
-    return commitChecker.run()
+    const commitsChecker = new CommitStyleChecker(data.commits, data.config.commit)
+    const branchChecker = new BranchStyleChecker({name: data.branch}, data.config.commit)
+    return [branchChecker.run(), commitsChecker.run()]
   }
 }

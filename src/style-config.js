@@ -6,4 +6,10 @@ module.exports = function(readConfig) {
       readConfig('commit-message-max-length'),
       readConfig('commit-message-min-length'),
   )
+
+  this.branch = new CommitStyleConfig(
+      readConfig('branch-name-regex'),
+      readConfig('branch-name-max-length'),
+      readConfig('branch-name-min-length'),
+  )
 }

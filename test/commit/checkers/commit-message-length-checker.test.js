@@ -34,7 +34,7 @@ test('returns an error message in case the commit message is too short', () => {
 
   const error = checker.run({message: 'Too short commit'})
 
-  expect(error).toEqual('Commit message is shorter then 20')
+  expect(error).toEqual('Commit message is shorter than 20')
 })
 
 test('returns an error message in case the commit message is too long', () => {
@@ -43,5 +43,5 @@ test('returns an error message in case the commit message is too long', () => {
 
   const error = checker.run({message: 'Too long commit'})
 
-  expect(error).toEqual('Commit message is longer then 10')
+  expect(error).toEqual('Commit message is longer than 10')
 })
