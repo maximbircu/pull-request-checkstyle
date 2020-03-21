@@ -1,0 +1,15 @@
+name: 'Pull Request StyleCheck'
+author: 'Maxim Bîrcu'
+description: 'Github action to enforce conventions for PR branch name and commit messages'
+inputs:
+  # Commit style config inputs
+  commit-message-regex:
+    default: "."
+  commit-message-max-length:
+    default: 50
+  commit-message-min-length:
+    default: 20
+
+runs:
+  using: 'node12'
+  main: 'index.js'

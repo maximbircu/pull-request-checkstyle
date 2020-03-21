@@ -1,0 +1,31 @@
+{
+  "name": "github-action-pull-request-checkstyle",
+  "version": "1.0.0",
+  "description": "Pull Request Checkstyle is a simple Github action which helps to set up some styling rules for pull requests `commit message` and `branch name` and identify their violation during CI runtime.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximbircu/github-action-pull-request-checkstyle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximbircu/github-action-pull-request-checkstyle/issues"
+  },
+  "homepage": "https://github.com/maximbircu/github-action-pull-request-checkstyle#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1",
+    "colors": "^1.4.0",
+    "jest": "^25.1.0",
+    "string-builder": "^0.1.6"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

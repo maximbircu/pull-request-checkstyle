@@ -1,0 +1,23 @@
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+
+      - name: Install node modules
+        run: npm install
+
+      - name: ESlint
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          reporter: github-pr-review
+          eslint_flags: '.'
+
+      - name: Run and validate
+        run: node index.js
