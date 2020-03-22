@@ -1,15 +1,16 @@
 module.exports = function(config) {
-  const regex = RegExp(config.messageRegex)
+  const regex = RegExp(config.messageTitleRegex)
 
   /**
-   * Checks weather the commit message matches the given regex
+   * Checks weather the commit message title matches the given regex
    *
-   * @param {PullsListCommitsResponseItemCommit} commit to be checked.
+   * @param {*} commit to be checked.
    * @return {string} Error message in case the commit doesn't pass the styling
    */
   this.run = (commit) => {
-    if (!regex.test(commit.message)) {
-      return `Commit message doesn't match the regex - ${regex}`
+    const commitMessageTitle = commit.message.split('\n')[0]
+    if (!regex.test(commitMessageTitle)) {
+      return `Commit message title doesn't match the regex - ${regex}`
     }
   }
 }

@@ -7,10 +7,11 @@ module.exports = function(config) {
    * @return {string} Error message in case the commit doesn't pass the styling
    */
   this.run = (commit) => {
-    if (commit.message.length > config.messageMaxLength) {
-      return `Commit message is longer than ${config.messageMaxLength}`
-    } else if (commit.message.length < config.messageMinLength) {
-      return `Commit message is shorter than ${config.messageMinLength}`
+    const commitMessageTitle = commit.message.split('\n')[0]
+    if (commitMessageTitle.length > config.messageTitleMaxLength) {
+      return `Commit message title is longer than ${config.messageTitleMaxLength}`
+    } else if (commitMessageTitle.length < config.messageTitleMinLength) {
+      return `Commit message title is shorter than ${config.messageTitleMinLength}`
     }
   }
 }

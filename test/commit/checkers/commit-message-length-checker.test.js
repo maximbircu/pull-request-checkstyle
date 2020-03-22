@@ -2,10 +2,10 @@ const CommitStyleConfig = require('../../../src/commit/commit-style-config')
 const CommitMessageLengthChecker = require('../../../src/commit/checkers/commit-message-length-checker')
 
 test('returns undefined in case the commit message is in between min and max', () => {
-  const config = new CommitStyleConfig('^[A-Z].*', 10, 40)
+  const config = new CommitStyleConfig('^[A-Z].*', 10, 30)
   const checker = new CommitMessageLengthChecker(config)
 
-  const error = checker.run({message: 'Correct commit message length'})
+  const error = checker.run({message: 'Correct commit message length\n other commit part'})
 
   expect(error).toBeUndefined()
 })
@@ -23,7 +23,7 @@ test('returns undefined in case the commit message length equals to max admissib
   const config = new CommitStyleConfig('^[A-Z].*', 3, 17)
   const checker = new CommitMessageLengthChecker(config)
 
-  const error = checker.run({message: 'Long valid commit'})
+  const error = checker.run({message: 'Long valid commit\n other commit part'})
 
   expect(error).toBeUndefined()
 })
@@ -34,7 +34,7 @@ test('returns an error message in case the commit message is too short', () => {
 
   const error = checker.run({message: 'Too short commit'})
 
-  expect(error).toEqual('Commit message is shorter than 20')
+  expect(error).toEqual('Commit message title is shorter than 20')
 })
 
 test('returns an error message in case the commit message is too long', () => {
@@ -43,5 +43,5 @@ test('returns an error message in case the commit message is too long', () => {
 
   const error = checker.run({message: 'Too long commit'})
 
-  expect(error).toEqual('Commit message is longer than 10')
+  expect(error).toEqual('Commit message title is longer than 10')
 })

@@ -16,7 +16,7 @@ test('returns an error message in case the commit message doesn\'t match the reg
 
   const error = checker.run({message: 'wrong commit message format'})
 
-  expect(error).toEqual('Commit message doesn\'t match the regex - /^[A-Z].*/')
+  expect(error).toEqual('Commit message title doesn\'t match the regex - /^[A-Z].*/')
 })
 
 

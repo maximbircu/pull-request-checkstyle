@@ -5,6 +5,7 @@ const {GITHUB_EVENT_NAME} = process.env
 
 const Repository = require('./src/repository.js')
 const StyleChecker = require('./src/style-checker.js')
+const GithubEvents = require('./src/github-events.js')
 
 /**
  * Runes a set of style checks other commit message and PR branches.
@@ -24,18 +25,19 @@ function main() {
         branchName: results[1],
         config: results[2],
       }
-      const errors = new StyleChecker(checkStyleData).check()
-      const errorMessage = errors.join('\n')
-      if (errorMessage.length !== 0) {
-        colors.enable()
-        core.setFailed(colors.red(errorMessage));
-      }
+      const errorMessages = new StyleChecker(checkStyleData).check()
+      errorMessages.forEach((errorMessage) => {
+        if (errorMessage.length !== 0 && errorMessage.trim() !== '') {
+          colors.enable()
+          core.setFailed(colors.red(errorMessage));
+        }
+      })
     })
   } catch (error) {
     core.setFailed(`${error.message}\n${error.stack}`)
   }
 }
 
-if (GITHUB_EVENT_NAME === GITHUB_EVENT_NAME.PULL_REQUEST) {
+if (GITHUB_EVENT_NAME === GithubEvents.PULL_REQUEST) {
   main()
 }

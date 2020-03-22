@@ -3,30 +3,37 @@
 
 # Pull Request Checkstyle
 
-Pull Request Checkstyle is a simple Github action which helps to set up some styling rules for pull requests `commit message` and `branch name`
-and identify their violation during CI runtime.
+Pull Request Checkstyle is a simple Github action that helps to set up some styling rules for the PR commit messages and branch names and identify their violation during CI runtime.
 
 # Usage
 ```yaml
-- name: "Check branch name and commit messages style"
-  uses: maximbircu/github-action-pull-request-checkstyle@v1.0.0
-  with:
-    commit-message-regex: ".*"     # Commit message regex
-    commit-message-min-length: 20  # Commit message min length
-    commit-message-max-length: 72  # Commit message max length
-    
-    branch-name-regex: ".*"        # Branch name regex
-    branch-name-min-length: 20     # Branch name min length
-    branch-name-max-length: 72     # Branch name max length
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.SOME_TOKEN }}
+    steps:
+    - name: "Check branch name and commit messages style"
+      uses: maximbircu/github-action-pull-request-checkstyle@v1.0.0
+      with:
+        commit-message-title-regex: ".*"     # Commit message title regex (Note that it validates just the first line of the commit message)
+        commit-message-title-min-length: 20  # Commit message title min length (Note that it validates just the first line of the commit message)
+        commit-message-title-max-length: 72  # Commit message title max length (Note that it validates just the first line of the commit message)
+
+        branch-name-regex: ".*"        # Branch name regex
+        branch-name-min-length: 20     # Branch name min length
+        branch-name-max-length: 72     # Branch name max length
 ```
 
 # Contribution rules:
 1. Make sure there is a GitHub issue describing the changes you want to contribute with. (Add one if needed)
 2. Submit a PR just in case you:
-  - Fixed the bug or implement the new feature properly;
-  - Covered all code with unit tests;
-  - Updated the changelog file;
-  - Updated the documentation (If needed);
+- Fixed the bug or implement the new feature properly;
+- Covered all code with unit tests;
+- Updated the changelog file;
+- Updated the documentation (If needed);
   
 License
 -------

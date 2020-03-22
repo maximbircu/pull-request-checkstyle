@@ -1,5 +1,11 @@
 ## Version 1.0.0 *(In development)*
 
+Issue: [#7](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
+- Fix `action.yml` file extension
+- Fix the order of the props in the models and the error messages aggregator method from the `index.js`
+- Add branding to the `action.yml` file
+- Add more details to the `README.md` file
+
 Issue: [#5](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
 - Remove `.md` extension from the LICENSE file 
 

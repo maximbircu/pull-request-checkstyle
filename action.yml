@@ -1,0 +1,36 @@
+name: 'Pull Request StyleCheck'
+author: 'Maxim Bîrcu'
+description: 'Github action to enforce conventions for PR branch name and commit messages'
+inputs:
+  commit-message-title-regex:
+    description: 'Regex to validate the commit message title (Validates just the first line of the commit message)'
+    required: false
+    default: ".*"
+  commit-message-title-min-length:
+    description: 'Min commit message title length (Validates just the first line of the commit message)'
+    required: false
+    default: "10"
+  commit-message-title-max-length:
+    description: 'Max commit message title length (Validates just the first line of the commit message)'
+    required: false
+    default: "72"
+  branch-name-regex:
+    description: 'Regex to validate the branch name'
+    required: false
+    default: ".*"
+  branch-name-min-length:
+    description: 'Min branch name length'
+    required: false
+    default: "10"
+  branch-name-max-length:
+    description: 'Max branch name length'
+    required: false
+    default: "72"
+
+branding:
+  icon: check
+  color: green
+
+runs:
+  using: 'node12'
+  main: 'index.js'

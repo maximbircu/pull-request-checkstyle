@@ -10,7 +10,7 @@ module.exports = function(data) {
    */
   this.check = () => {
     const commitsChecker = new CommitStyleChecker(data.commits, data.config.commit)
-    const branchChecker = new BranchStyleChecker({name: data.branch}, data.config.commit)
+    const branchChecker = new BranchStyleChecker({name: data.branchName}, data.config.branch)
     return [branchChecker.run(), commitsChecker.run()]
   }
 }
