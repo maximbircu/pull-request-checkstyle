@@ -1,4 +1,6 @@
-## Version 1.0.0 *(In development)*
+## Version 1.0.1 *(In development)*
+
+## Version 1.0.0 07/05/2020
 - Bump @actions/http-client from 1.0.6 to 1.0.8
 
 - Fix `action.yml` file extension
