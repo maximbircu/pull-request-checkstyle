@@ -1,4 +1,4 @@
-![CI](https://github.com/maximbircu/github-action-pull-request-checkstyle/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/maximbircu/pull-request-checkstyle/workflows/CI/badge.svg?branch=master)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/maximbircu/github-action-pull-request-checkstyle/blob/master/LICENSE.md)
 
 # Pull Request Checkstyle
