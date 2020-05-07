@@ -1,5 +1,8 @@
 ## Version 1.0.0 *(In development)*
 
+Issue: [#10](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
+- Bump @actions/http-client from 1.0.6 to 1.0.8
+
 Issue: [#7](https://github.com/maximbircu/github-action-pull-request-checkstyle/issues/1)
 - Fix `action.yml` file extension
 - Fix the order of the props in the models and the error messages aggregator method from the `index.js`
