@@ -16,7 +16,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.SOME_TOKEN }}
     steps:
     - name: "Check branch name and commit messages style"
-      uses: maximbircu/github-action-pull-request-checkstyle@v1.0.0
+      uses: maximbircu/pull-request-checkstyle@v1.0.0
       with:
         commit-message-title-regex: ".*"     # Commit message title regex (Note that it validates just the first line of the commit message)
         commit-message-title-min-length: 20  # Commit message title min length (Note that it validates just the first line of the commit message)
