@@ -41,6 +41,22 @@ module.exports = function() {
     }
   }
 
+    /**
+   * Fetches the Pull Request Obbject.
+   *
+   * @return {Promise<void|string|*>} pull request promis
+   */
+    this.getPullRequest = async () => {
+      switch (GITHUB_EVENT_NAME) {
+        case GithubEvents.PUSH:
+          return null
+        case GithubEvents.PULL_REQUEST:
+          return eventContext.payload.pull_request;
+        default:
+          throw new Error(`Invalid event name: ${GITHUB_EVENT_NAME}`);
+      }
+    }
+
   /**
    * Fetches the checkstyle config from the user action yml configuration.
    *

@@ -17,13 +17,15 @@ function main() {
     const styleConfigPromise = repository.getStyleConfig()
     const commitsPromise = repository.getCommits()
     const branchNamePromise = repository.getBranchName()
+    const pullRequestPromise = repository.getPullRequest()
 
-    const promises = [commitsPromise, branchNamePromise, styleConfigPromise]
+    const promises = [commitsPromise, branchNamePromise, pullRequestPromise, styleConfigPromise]
     Promise.all(promises).then((results) => {
       const checkStyleData = {
         commits: results[0],
         branchName: results[1],
-        config: results[2],
+        pullRequest: results[2],
+        config: results[3],
       }
       const errorMessages = new StyleChecker(checkStyleData).check()
       errorMessages.forEach((errorMessage) => {

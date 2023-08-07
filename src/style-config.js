@@ -18,4 +18,10 @@ module.exports = function(readConfig) {
       readOrDefault('branch-name-min-length', 10),
       readOrDefault('branch-name-max-length', 72),
   )
+
+  this.pullRequestTitle = new BranchStyleConfig(
+    readOrDefault('pull-request-title-regex', '.*'),
+    readOrDefault('pull-request-title-min-length', 10),
+    readOrDefault('pull-request-title-max-length', 72),
+)
 }

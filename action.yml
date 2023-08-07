@@ -26,6 +26,18 @@ inputs:
     description: 'Max branch name length'
     required: false
     default: "72"
+  pull-request-title-regex:
+    description: 'Regex to validate the pull request title'
+    required: false
+    default: ".*"
+  pull-request-title-min-length:
+    description: 'Min pull request title length'
+    required: false
+    default: "10"
+  pull-request-title-max-length:
+    description: 'Max pull request title length'
+    required: false
+    default: "72"
 
 branding:
   icon: check
