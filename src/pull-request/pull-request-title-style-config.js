@@ -1,5 +1,5 @@
-module.exports = function(messageTitleRegex, messageTitleMinLength, messageTitleMaxLength) {
-  this.messageTitleRegex = messageTitleRegex
-  this.messageTitleMinLength = messageTitleMinLength
-  this.messageTitleMaxLength = messageTitleMaxLength
+module.exports = function(titleRegex, titleMinLength, titleMaxLength) {
+  this.titleRegex = titleRegex
+  this.titleMinLength = titleMinLength
+  this.titleMaxLength = titleMaxLength
 }

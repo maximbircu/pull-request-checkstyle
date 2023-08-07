@@ -1,6 +1,6 @@
 const CommitStyleChecker = require('./commit/commit-style-checker.js')
 const BranchStyleChecker = require('./branch/branch-style-checker.js')
-const PullRequesStyleChecker = require('./branch/pull-request-title-style-checker.js')
+const PullRequesStyleChecker = require('./pull-request/pull-request-title-style-checker.js')
 
 module.exports = function(data) {
   /**
@@ -12,11 +12,11 @@ module.exports = function(data) {
   this.check = () => {
     const commitsChecker = new CommitStyleChecker(data.commits, data.config.commit)
     const branchChecker = new BranchStyleChecker({name: data.branchName}, data.config.branch)
-    const pullRequestTitleChecker = new PullRequesStyleChecker({name: data.pullRequest}, data.config.pullRequest)
+    const pullRequestTitleChecker = new PullRequesStyleChecker({name: data.pullRequest}.name, data.config.pullRequestTitle)
     return [
-      branchChecker.run(), 
+      branchChecker.run(),
       commitsChecker.run(),
-      pullRequestTitleChecker.run()
+      pullRequestTitleChecker.run(),
     ]
   }
 }

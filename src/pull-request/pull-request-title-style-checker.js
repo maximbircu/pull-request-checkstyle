@@ -22,7 +22,9 @@ module.exports = function(pullRequest, config) {
     const errorBuilder = new StringBuilder()
     const errorMessage = checkPullRequestTtitle(pullRequest.title)
     if (errorMessage.length !== 0) {
-      errorBuilder.appendLine('Pull request style violations found!').appendLine(errorMessage)
+      errorBuilder.appendLine('Pull request style violations found!\n')
+          .appendLine(`"${pullRequest.title}"`)
+          .append(errorMessage)
     }
     return errorBuilder.toString()
   }

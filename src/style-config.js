@@ -1,5 +1,6 @@
 const CommitStyleConfig = require('./commit/commit-style-config')
 const BranchStyleConfig = require('./branch/branch-style-config')
+const PullRequestStyleConfig = require('./pull-request/pull-request-title-style-config')
 
 module.exports = function(readConfig) {
   const readOrDefault = (name, defaultValue) => {
@@ -19,9 +20,9 @@ module.exports = function(readConfig) {
       readOrDefault('branch-name-max-length', 72),
   )
 
-  this.pullRequestTitle = new BranchStyleConfig(
-    readOrDefault('pull-request-title-regex', '.*'),
-    readOrDefault('pull-request-title-min-length', 10),
-    readOrDefault('pull-request-title-max-length', 72),
-)
+  this.pullRequestTitle = new PullRequestStyleConfig(
+      readOrDefault('pull-request-title-regex', '.*'),
+      readOrDefault('pull-request-title-min-length', 10),
+      readOrDefault('pull-request-title-max-length', 72),
+  )
 }
